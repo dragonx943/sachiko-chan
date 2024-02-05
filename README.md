@@ -23,5 +23,5 @@ Bạn cũng cần phải có mã key OpenAI API để Bot có thể hoạt độ
 5. Chạy Bot bằng lệnh `python main.py`
 
 ## Đóng góp
-Nếu có đóng góp hay có vấn đề, hãy di chuyển sang trang Repo chứa dự án gốc của bemxio để đóng góp, đừng đóng góp tại trang Repo này của tôi=)
+Nếu có đóng góp hay có vấn đề, hãy di chuyển sang trang Repo chứa dự án gốc của bemxio để đóng góp, đừng đóng góp tại trang Repo này của tôi=) \n
 Trang Repo / Dự án gốc của bemxio về Sachiko-chan: [bemxio/sachiko-chan](https://github.com/bemxio/sachiko-chan)
