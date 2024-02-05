@@ -9,10 +9,10 @@ class Admin(Cog):
     def __init__(self, bot: discord.Bot):
         self.bot: discord.Bot = bot
 
-    @discord.slash_command(description="Get the conversations of the bot.")
+    @discord.slash_command(description="Lệnh kêu gọi python lấy dữ liệu Chat mới nhất của bạn và Sachiko-chan")
     async def conversations(self, ctx: discord.ApplicationContext):
         if not await self.bot.is_owner(ctx.author):
-            return await ctx.respond("`You do not have permission to use this command.`")
+            return await ctx.respond("`Bạn không có quyền để dùng lệnh này!`")
 
         cog = self.bot.cogs["Chat"]
 
@@ -21,10 +21,10 @@ class Admin(Cog):
 
         await ctx.respond(file=file)
 
-    @discord.slash_command(description="Clear all of the conversations of the bot.")
+    @discord.slash_command(description="Dọn sạch cuộc trò chuyện giữa bạn và Sachiko-chan")
     async def clear(self, ctx: discord.ApplicationContext):
         if not await self.bot.is_owner(ctx.author):
-            return await ctx.respond("`You do not have permission to use this command.`")
+            return await ctx.respond("`Bạn không có quyền để dùng lệnh này!`")
 
         # get the "Chat" cog
         cog = self.bot.cogs["Chat"]
@@ -33,7 +33,7 @@ class Admin(Cog):
         cog.conversations = {}
 
         # respond to the admin
-        await ctx.respond("`Successfully cleared the conversation history.`")
+        await ctx.respond("`Đã dọn sạch lịch sử cuộc trò chuyện giữa bạn và Sachiko-chan!`")
 
 def setup(bot: discord.Bot):
     bot.add_cog(Admin(bot))

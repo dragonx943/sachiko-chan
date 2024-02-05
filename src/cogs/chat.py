@@ -41,14 +41,14 @@ class Chat(Cog):
         # send the bot's response
         await message.reply(content, mention_author=False)
 
-    @discord.slash_command(description="Makes Sachiko-chan forget the message history with you.")
+    @discord.slash_command(description="Tẩy não Sachiko-chan (Trong trường hợp câu từ của cô ấy mất kiểm soát)")
     async def forget(self, ctx: discord.ApplicationContext):
         author = str(ctx.author.id)
 
         if author in self.conversations:
             self.conversations[author] = [{"role": "user", "content": self.bot.initial_prompt}]
 
-        await ctx.respond("`Successfully cleared your conversation history.`")
+        await ctx.respond("`Đã dùng phép thuật tẩy não Sachiko-chan thành công thông qua ChatGPT API. Tag cô ấy = Tạo 1 cuộc trò chuyện mới!`")
 
 def setup(bot: discord.Bot):
     bot.add_cog(Chat(bot))
