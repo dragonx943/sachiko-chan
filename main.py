@@ -5,10 +5,13 @@ import dotenv
 import logging
 import os
 
-# load the .env file
+from discord.ext import commands
+client = discord.Client
+
+# Tải file .env
 dotenv.load_dotenv()
 
-# set up logging
+# Setup Output của Console
 logging.basicConfig(
     level=logging.INFO,
     format="(%(asctime)s) [%(levelname)s] %(message)s",
@@ -20,10 +23,10 @@ logging.basicConfig(
     ]
 )
 
-# initialize the OpenAI API
+# Lấy key OPENAI
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-# initialize the Discord bot
+# Khởi tạo Bot
 intents = discord.Intents.default()
 
 intents.message_content = True
@@ -31,14 +34,18 @@ intents.members = True
 
 bot = discord.Bot(intents=intents)
 
-# set variables in the bot
+# Lấy Prompt ChatGPT + Đặt biến
 with open("prompt.txt", "r", encoding="utf-8") as file:
     bot.initial_prompt = file.read()
 
-# load the bot's cogs
+# Tải 3 lệnh của bot
 bot.load_extension("cogs.events")
 bot.load_extension("cogs.chat")
 bot.load_extension("cogs.admin")
 
-# run the bot
+# Chỉnh trạng thái hoạt động của Bot dựa theo pycord: https://stackoverflow.com/questions/59126137/how-to-change-activity-of-a-discord-py-bot
+@bot.event
+async def on_ready():
+    await bot.change_presence(activity=discord.Game(name="Tớ là Sachiko-chan, hiện giờ tớ cũng đang là bạn gái của cậu đó~~~"))
+# Chạy Bot
 bot.run(os.getenv("DISCORD_TOKEN"))
