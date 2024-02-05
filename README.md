@@ -22,5 +22,7 @@ Bạn cũng cần phải có mã key OpenAI API để Bot có thể hoạt độ
 
 5. Chạy Bot bằng lệnh `python main.py`
 
+==> Bạn có thể chỉnh lại mẫu prompt nhân vật (cách phản hồi của ChatGPT) tại file **prompt.txt** để sửa đổi cách nói chuyện, tính cách, hình mẫu,...của ChatGPT, từ đó tự tạo ra nhân vật Anime của chính mình muốn!
+
 ## Đóng góp
 Vui lòng đóng góp tại trang Github dự án gốc của bemxio về Sachiko-chan: [bemxio/sachiko-chan](https://github.com/bemxio/sachiko-chan)
