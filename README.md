@@ -20,7 +20,7 @@ Bạn cũng cần phải có mã key OpenAI API để Bot có thể hoạt độ
     OPENAI_API_KEY=<Nhập mã key OPENAI API bạn lấy ở trang OPENAI vào đây>
     ```
 
-5. Chạy Bot bằng lệnh `python .\src\main.py` (Linux thì đổi \ thành / là oki).
+5. Chạy Bot bằng lệnh `python main.py`
 
 ## Đóng góp
 Nếu có đóng góp hay có vấn đề, hãy di chuyển sang trang Repo chứa dự án gốc của bemxio để đóng góp, đừng đóng góp tại trang Repo này của tôi=)
