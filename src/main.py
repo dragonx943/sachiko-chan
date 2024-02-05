@@ -32,7 +32,7 @@ intents.members = True
 bot = discord.Bot(intents=intents)
 
 # set variables in the bot
-with open(".\src\prompt.txt", "r", encoding="utf-8") as file:
+with open("./src/prompt.txt", "r", encoding="utf-8") as file:
     bot.initial_prompt = file.read()
 
 # load the bot's cogs
