@@ -1,7 +1,7 @@
 # Sachiko-chan
 Một con Bot Discord, ẩn dưới dạng một cô gái Anime với "[kiểu nói chuyện cuties UwU](https://www.urbandictionary.com/define.php?term=UwU%20Speech)" và cô ấy rất hay sử dụng [emoji](https://vi.wikipedia.org/wiki/Emoticon#Japanese_(kaomoji)) khi nhắn tin.
 
-Sachiko-chan sử dụng [OpenAI's API](https://platform.openai.com/docs/api-reference/chat) và [Pycord](https://pycord.dev) để vận hành, và được làm hoàn toàn từ ~~trái tim của 1 thằng wibu ráck đéo có gái như tôi~~ sự nghiên cứu trick, hack, leak code về và bào chế lại Bot của tôi=)
+Sachiko-chan sử dụng [API của OpenAI](https://platform.openai.com/docs/api-reference/chat) và [Pycord](https://pycord.dev) để vận hành, và được làm hoàn toàn từ ~~trái tim của 1 thằng wibu ráck đéo có gái như tôi~~ sự nghiên cứu trick, hack, leak code về và bào chế lại Bot của tôi=)
 
 ## How to chạy Bot
 Để chạy Sachiko-chan cho riêng mình, hãy đảm bảo rằng bạn đã cài Python 3.8 hoặc phiên bản cao hơn về máy tính hoặc điện thoại của bạn. Bạn có thể tải Python [tại đây](https://www.python.org/downloads/).
