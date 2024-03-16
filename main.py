@@ -29,6 +29,8 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 # Khởi tạo Bot
 intents = discord.Intents.default()
 
+intents.presences = True
+intents.guilds = True
 intents.message_content = True
 intents.members = True
 
@@ -43,9 +45,15 @@ bot.load_extension("cogs.events")
 bot.load_extension("cogs.chat")
 bot.load_extension("cogs.admin")
 
-# Chỉnh trạng thái hoạt động của Bot dựa theo pycord: https://stackoverflow.com/questions/59126137/how-to-change-activity-of-a-discord-py-bot
+# Cập nhật trạng thái hoạt động của Sachiko-chan bao gồm số Servers đang tham gia và tổng số thành viên của tất cả Servers mà Sachiko-chan có mặt...
+async def update_status():
+    total_members = sum(guild.member_count for guild in bot.guilds)
+    guild_count = len(bot.guilds)
+    await bot.change_presence(activity=discord.Game(name=f"Số máy chủ: {guild_count} | Số thành viên: {total_members}"))
+
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Game(name="Tớ là Sachiko-chan, hiện giờ tớ cũng đang là bạn gái của cậu đó~~~"))
+    await update_status()
+
 # Chạy Bot
 bot.run(os.getenv("DISCORD_TOKEN"))
