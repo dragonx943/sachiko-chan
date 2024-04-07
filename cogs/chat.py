@@ -1,6 +1,6 @@
-from discord.ext.commands import Cog
+from discord.ext.commands import Cog, Context, command
 import discord
-
+import requests
 import utilities
 
 class Chat(Cog):
@@ -49,6 +49,27 @@ class Chat(Cog):
             self.conversations[author] = [{"role": "user", "content": self.bot.initial_prompt}]
 
         await ctx.respond("`Đã dùng phép thuật tẩy não Sachiko-chan thành công thông qua ChatGPT API. Tag cô ấy = Tạo 1 cuộc trò chuyện mới!`")
+
+    @discord.slash_command(description="Kiểm tra trạng thái hoạt động tại nơi Sachiko-chan đang làm việc!")
+    async def status(self, ctx: discord.ApplicationContext):
+        try:
+            response = requests.get("#Trang web cần Ping để lấy status#")
+            response.raise_for_status()  # Raise exception for non-200 status codes
+            sachiko_status = f"Sachiko-chan vẫn đang làm việc chăm chỉ, cậu yên tâm nhé! **`(Đang hoạt động)`**"
+        except requests.exceptions.HTTPError as e:
+            if e.response.status_code == 404:
+                sachiko_status = f"Sachiko-chan vẫn đang làm việc chăm chỉ, cậu yên tâm nhé! **`(Đang hoạt động)`**"
+            else:
+                sachiko_status = f"Sachiko-chan hiện đang vắng mặt ở chỗ làm...Oops! **`(Đang bảo trì)`**"
+        except requests.exceptions.RequestException:
+            sachiko_status = f"Sachiko-chan hiện đang vắng mặt ở chỗ làm...Oops! **`(Đang bảo trì)`**"
+        await ctx.respond(sachiko_status)
+
+    @discord.slash_command(description="Hỏi Sachiko-chan về độ trễ phản hồi (Ping)")
+    async def ping(self, ctx: discord.ApplicationContext):
+        latency = round(self.bot.latency * 1000)
+        ping = f"**🏓 Pong! Sachiko-chan hiện đang phản hồi cậu ở độ trễ** **`{latency}ms`** **đó!**\n"
+        await ctx.respond(ping)
 
 def setup(bot: discord.Bot):
     bot.add_cog(Chat(bot))
