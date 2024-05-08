@@ -54,7 +54,7 @@ class Chat(Cog):
 
     @discord.slash_command(description="Kiểm tra trạng thái của Sachiko-chan / Check Sachiko-chan's status!")
     async def status(self, ctx: discord.ApplicationContext):
-        status = f"**Chi tiết trạng thái / Status: [Ấn vào đây / Visit this page](https://dragonx943.github.io/)**"
+        status = f"**Chi tiết trạng thái / Status: [Ấn vào đây / Visit this page](https://google.com/)**"
         await ctx.respond(status)
 
     @discord.slash_command(description="Hỏi Sachiko-chan về độ trễ phản hồi / Ask Sachiko-chan about her response delay (Ping)")

@@ -27,7 +27,6 @@ logging.basicConfig(
 )
 
 # Lấy key OPENAI
-openai.api_base = "https://api.naga.ac/v1"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Khởi tạo Bot
@@ -59,34 +58,7 @@ async def update_status():
     # Thuật toán đơn giản để bot random nhạc trong list
     global music_counter, np_song # Lấy biến bên ngoài
     songs_list = [ # List nhạc của Bot (Fake)
-        "soft japanese playlist to study/chill/sleep",
-	"chill japanese songs to vibe with...",
-	"Relax with my cat - beats to sleep/study...",
-	"Cute Korean & Japanese songs [PLAYLIST]🍇",
-	"cute lofi mix songs to help you be happy",
-	"chill songs that will make you feel relaxed",
-	"Swing Beats [Jazz Hop / Lo Fi / Chill Mix]",
-	"【Cute Aesthetic Mix】| Happy Study & Relax...",
-	"「1 hour」 bunny girl senpai ~ lofi chill 🌆",
-	"Japanese Music of the Edo Period",
-	"Relaxing Traditional Japanese musical ins...",
-	"6 Hours of Beautiful & Relaxing Anime Mu...",
-	"morning walks. 🌻 anime lofi mix",
-	"japanese indie rock songs to listen...",
-	"an upbeat jpop/rock playlist to cheer you up",
-	"Chill Out with Anime Songs | Anime Opening Songs...",
-	"stream cafe - boba date ♥ (1 hour): cute music",
-	"japanese pop/rock songs to cheer you up...",
-	"[Bình yên thư giãn nhẹ nhàng] Thiền - Monoman",
-	"Leat'eq - Tokyo (1 hour)",
-	"Kawaii future bass mix | Vol. 4",
-	"Kawaii Future Bass Collection Vol.2",
-	"Doki Doki Literature Club Plus! OST",
-	"Japanese Anime Songs [Radwimps, Yonezu Kenshi,...]",
-    "yoasobi playlist + lyrics romaji",
-    "Eve Playlist 【Eveメドレー】",
-    "YOASOBI Playlist - All Songs Yoasobi Playlist 2021 .",
-    "[Playlist] 이맘때면 떠오르는 너의 이름은 OST 外 RADWIMPS..."
+        ""
         ]
 
     music_counter += 10 # Giá trị được cộng thêm 15s mỗi lần update
