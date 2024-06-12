@@ -111,7 +111,7 @@ If you want to delete your data with the system, use the command "/forget" or co
 - We do not knowingly collect any personal information from children under 13 years of age. If you believe that your child has provided this type of information while using our services, we strongly encourage you to contact us immediately and we will use our best efforts to promptly remove the information. information from our system immediately.
 
 ## Changes to Privacy Policy:
-From time to time we may have new updates to our Privacy Policy. You should periodically review this Privacy Policy for any changes.
+We may have new updates to our Privacy Policy. You should periodically review this Privacy Policy for any changes.
 
 ## Contact us:
 - If you have any questions or suggestions about our Privacy Policy, please contact us at Gmail: emailracvaicalon@gmail.com
