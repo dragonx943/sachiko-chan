@@ -83,7 +83,7 @@ We may collect the following types of information from you or your server and se
 
 ## Use data:
 - The main purpose of data collection is to provide services including processing and automatically replying to messages on the Discord server, based on information from the server or provided by you.
-- Your data is sent entirely because OpenAI will receive and process the information, we do not have any authority to query, track or exchange your data to any third party. other than OpenAI.
+- Your data is sent entirely because OpenAI will receive and process the information, we do not have any authority to query, track or exchange your data to any third party EXCEPT OpenAI.
 
 ## Data saving:
 - We want to keep your data private and secure. We will not store any data of you or your server in our system except the data you send from using the feedback command we provide.
