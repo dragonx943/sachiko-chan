@@ -10,7 +10,7 @@ def random_chance(percent: int) -> bool:
     return random.randint(1, 100) <= percent
 
 def filter_markdown(text: str) -> str:
-    filtered = text.replace("\\", "\\\\") # escape backslashes first
+    filtered = text.replace("\\", "\\\\")
 
     filtered = filtered.replace("*", "\\*")
     filtered = filtered.replace("_", "\\_")

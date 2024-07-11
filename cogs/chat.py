@@ -10,23 +10,22 @@ class Chat(Cog):
 
     @Cog.listener()
     async def on_message(self, message: discord.Message):
-        # ignore messages sent by the bot
+        user = message.author.name
         if message.author == self.bot.user:
             return
 
-        # ignore messages that aren't mentioning the bot
         if not utilities.is_mentioned(self.bot.user, message):
             return
 
         author = str(message.author.id)
-        
 
         content = message.clean_content.replace(f"@{self.bot.user.name}", "")
         content = content.strip()
 
         if author not in self.conversations:
-            caller = message.author.nick or message.author.name
-            self.conversations[author] = [{"role": "user", "content": self.bot.initial_prompt.replace('${user}', caller)}]
+            edited = self.bot.initial_prompt.replace("${user}", user)
+
+            self.conversations[author] = [{"role": "user", "content": edited}]
 
         self.conversations[author].append({
             "role": "user", "content": content
@@ -36,12 +35,8 @@ class Chat(Cog):
             response = await utilities.chat_request(self.conversations[author])
 
         content = utilities.filter_markdown(response.content)
-
-        # append the bot's response to the conversation
         self.conversations[author].append(response)
-
-        # send the bot's response
-        await message.reply(content, mention_author=False)
+        await message.reply(content, mention_author=True)
 
     @discord.slash_command(description="Tẩy não Sachiko-chan / Delete your old chats with Sachiko-chan")
     async def forget(self, ctx: discord.ApplicationContext):
@@ -54,7 +49,7 @@ class Chat(Cog):
 
     @discord.slash_command(description="Kiểm tra trạng thái của Sachiko-chan / Check Sachiko-chan's status!")
     async def status(self, ctx: discord.ApplicationContext):
-        status = f"**Chi tiết trạng thái / Status: [Ấn vào đây / Visit this page](https://google.com/)**"
+        status = f"**Chi tiết trạng thái / Status: **" # Đoạn này tự add
         await ctx.respond(status)
 
     @discord.slash_command(description="Hỏi Sachiko-chan về độ trễ phản hồi / Ask Sachiko-chan about her response delay (Ping)")
@@ -62,6 +57,13 @@ class Chat(Cog):
         latency = round(self.bot.latency * 1000)
         ping = f"**🏓 Pong! Độ trễ hiện tại / Delay messages output:** **`{latency}ms`**"
         await ctx.respond(ping)
+
+    @discord.slash_command(description="Đóng góp ý kiến của bạn về Dev của Sachiko-chan / Send your feedback to Sachiko-chan's Dev!")
+    async def feedback(self, ctx: discord.ApplicationContext, content: discord.Option(str, description="Hãy nhập tin nhắn mà bạn muốn gửi cho Dev! / Enter the message you want to send to Dev!")):
+        with open('commit.txt', 'a', encoding='utf-8') as f:
+            f.write(f'{ctx.author.name} - {ctx.author.id} - {content}\n')
+
+        await ctx.respond('**`Đã gửi thành công!`** / **`Your message has been sent successfully!`**')
 
 def setup(bot: discord.Bot):
     bot.add_cog(Chat(bot))
